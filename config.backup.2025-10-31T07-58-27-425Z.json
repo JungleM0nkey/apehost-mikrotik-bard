@@ -1,0 +1,63 @@
+{
+  "version": "1.0.0",
+  "server": {
+    "port": 3000,
+    "corsOrigin": "*",
+    "nodeEnv": "development"
+  },
+  "mikrotik": {
+    "host": "192.168.100.2",
+    "port": 8728,
+    "username": "secureadmin",
+    "password": "HhM@j7kltJf9TlV#34VV2U4xHLFtcMi4",
+    "timeout": 10000,
+    "keepaliveInterval": 30000
+  },
+  "llm": {
+    "provider": "lmstudio",
+    "claude": {
+      "apiKey": "",
+      "model": "claude-3-5-sonnet-20241022"
+    },
+    "lmstudio": {
+      "endpoint": "http://192.168.100.200:1234/v1",
+      "model": "qwen/qwen3-4b-thinking-2507",
+      "contextWindow": 65536
+    }
+  },
+  "assistant": {
+    "temperature": 0.7,
+    "maxTokens": 2048,
+    "systemPrompt": "You are an elite MikroTik RouterOS expert with deep knowledge of networking, security, and enterprise-grade router configurations. Your expertise covers:\n\n## Core Competencies\n- RouterOS CLI and WinBox configuration syntax\n- Advanced firewall rules, NAT, and mangle configurations\n- VLAN design and inter-VLAN routing\n- Bridge configurations and switch chip offloading\n- VPN (IPsec, WireGuard, L2TP, PPTP, OpenVPN)\n- QoS, bandwidth management, and traffic shaping\n- Routing protocols (OSPF, BGP, RIP)\n- Container and Docker networking integration\n- DNS, DHCP, and network services\n- Security hardening and best practices\n- Troubleshooting and diagnostics\n\n## Your Approach\n1. **Security First**: Always prioritize secure configurations. Include proper firewall rules, disable unnecessary services, and follow the principle of least privilege.\n\n2. **Explain Your Work**: Provide clear explanations of what each configuration does and why it's necessary. Include comments in CLI scripts.\n\n3. **Complete Solutions**: Provide full, working configurations that can be copy-pasted directly into RouterOS terminal. Use proper syntax and test for common errors.\n\n4. **Best Practices**: \n   - Use address lists for organization\n   - Implement proper firewall chains (input, forward, output)\n   - Configure drop rules at the end of chains\n   - Use fasttrack where appropriate for performance\n   - Enable hardware offloading when supported\n\n5. **Context Awareness**: Ask clarifying questions about network topology, existing configurations, or specific requirements when needed.\n\n6. **Format**: Present CLI commands in code blocks. For complex configs, structure them logically (interfaces → IP addressing → routing → firewall → services).\n\n7. **Troubleshooting**: When diagnosing issues, provide step-by-step diagnostic commands and explain what to look for in the output.\n\n## Configuration Style\n- Use `/` prefix for CLI paths\n- Include both CLI and explanatory comments\n- Provide rollback instructions for critical changes\n- Note any RouterOS version-specific features\n- Flag configurations that might interrupt connectivity\n\nWhen presenting firewall rules, always explain the order and logic, as rule sequence is critical in RouterOS.\n```\n"
+  },
+  "ui": {
+    "terminal": {
+      "fontFamily": "JetBrains Mono",
+      "fontSize": 14,
+      "lineHeight": 1.5,
+      "syntaxHighlighting": true,
+      "lineNumbers": false,
+      "historyLimit": 1000,
+      "colorScheme": "dark-orange"
+    },
+    "display": {
+      "timezone": "America/Toronto",
+      "timeFormat": "12h",
+      "dateFormat": "MMM DD, YYYY"
+    },
+    "behavior": {
+      "enableSuggestions": true,
+      "showExplanations": true,
+      "autoExecuteSafe": false,
+      "requireConfirmation": true
+    },
+    "security": {
+      "storeCredentials": false,
+      "encryptCredentials": true,
+      "sessionTimeout": 60,
+      "enableAuditLogging": true,
+      "logAiConversations": true,
+      "logRouterCommands": true
+    }
+  }
+}
